@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #323230;
+  color: #FEF8E0;
+  font-family: sans-serif;
+  background-color: #EDEDED;
+  font-size: 16px;
+}
+
+.container {
+  padding: 0 40px;
+}
+
+p {
+  line-height: 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  color: #FCD947;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+}
+
+a, a:link, a:visited {
+  color: #FCD947;
+}
+
+:focus {
+  outline: 1px solid #FCD947;
+}
+
+input, textarea, label {
+  font-size: 1.5rem;
+}
+
+.wrapper {
+  width: 960px;
+}
+
+@media (max-width: 960px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+

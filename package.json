@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@kevinwolf/formal-web": "^0.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "parcel-bundler": "^1.12.3"
+  },
+  "scripts": {
+    "build": "parcel build index.html",
+    "start": "parcel index.html"
+  }
+}
