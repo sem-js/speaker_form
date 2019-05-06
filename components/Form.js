@@ -21,8 +21,7 @@ const schema = yup.object().shape({
     .required(),
   bio: yup.string().required(),
   notes: yup.string(),
-  abstract: yup.string().required(),
-  message: yup.string().required()
+  abstract: yup.string().required()
 });
 
 const Label = styled.label`
@@ -63,6 +62,7 @@ const Button = styled.button`
 
 const Centered = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -101,19 +101,22 @@ export default function Form() {
   const formal = useFormal(formInitialValues, {
     schema,
     onSubmit: values => {
+      const body = encode({
+        "form-name": "contact",
+        ...values
+      });
+
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          ...values
-        })
+        body
       })
         .then(() => setFormFilled(true))
         .catch(error => console.log(error));
     }
   });
 
+  const submitButtonProps = formal.getSubmitButtonProps();
   return formFilled ? (
     <h2>
       Thanks for your proposed talk - we'll be back with you once we've had a
@@ -145,7 +148,12 @@ export default function Form() {
         <Field label="Notes" {...formal.getFieldProps("notes")} textArea />
         <Field label="Bio" {...formal.getFieldProps("bio")} textArea />
         <Centered>
-          <Button {...formal.getSubmitButtonProps()}>Submit</Button>
+          {submitButtonProps.disabled && (
+            <p>
+              <small>Button will be enabled after filling out form</small>
+            </p>
+          )}
+          <Button {...submitButtonProps}>Submit</Button>
         </Centered>
       </form>
     </Fragment>

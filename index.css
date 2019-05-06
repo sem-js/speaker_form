@@ -48,3 +48,13 @@ input, textarea, label {
   }
 }
 
+button:disabled {
+  opacity: .5;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-top: 3px solid #FCD947;
+}
+
