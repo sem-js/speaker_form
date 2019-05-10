@@ -74,10 +74,10 @@ const Error = styled.small`
   font-size: 1rem;
 `;
 
-function Field({ id, label, error, ...props }) {
+function Field({ id, label, description, error, ...props }) {
   return (
     <FieldContainer>
-      <Label htmlFor={id}>{label}</Label>
+      <Label htmlFor={id}>{label}</Label><span>{description}</span>
       {props.textArea ? (
         <Input id={id} name={id} rows={4} {...props} as="textarea" />
       ) : (
@@ -138,15 +138,16 @@ export default function Form() {
             {...formal.getFieldProps("bot-field")}
           />
         </div>
-        <Field label="Name" {...formal.getFieldProps("name")} />
-        <Field label="Email" {...formal.getFieldProps("email")} />
+        <Field label="Name*" {...formal.getFieldProps("name")} />
+        <Field label="Email*" {...formal.getFieldProps("email")} />
         <Field
-          label="Abstract"
+          label="Abstract*"
+          description="This will be used as the description on the meetup.com notice"
           {...formal.getFieldProps("abstract")}
           textArea
         />
-        <Field label="Notes" {...formal.getFieldProps("notes")} textArea />
-        <Field label="Bio" {...formal.getFieldProps("bio")} textArea />
+        <Field label="Notes" description="Anything you want to tell the organizers, but not have included in the event notice" {...formal.getFieldProps("notes")} textArea />
+        <Field label="Bio*" description="Give us a few sentences about yourself." {...formal.getFieldProps("bio")} textArea />
         <Centered>
           {submitButtonProps.disabled && (
             <p>

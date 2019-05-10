@@ -4,7 +4,8 @@ import styled from "styled-components";
 import Logo from "./Logo";
 
 const Wrapper = styled.div`
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   background-color: #323230;
