@@ -138,16 +138,16 @@ export default function Form() {
             {...formal.getFieldProps("bot-field")}
           />
         </div>
-        <Field label="Name" {...formal.getFieldProps("name")} />
-        <Field label="Email" {...formal.getFieldProps("email")} />
+        <Field label="Name*" {...formal.getFieldProps("name")} />
+        <Field label="Email*" {...formal.getFieldProps("email")} />
         <Field
-          label="Abstract"
+          label="Abstract*"
           description="This will be used as the description on the meetup.com notice"
           {...formal.getFieldProps("abstract")}
           textArea
         />
         <Field label="Notes" description="Anything you want to tell the organizers, but not have included in the event notice" {...formal.getFieldProps("notes")} textArea />
-        <Field label="Bio" description="Give us a few sentences about yourself." {...formal.getFieldProps("bio")} textArea />
+        <Field label="Bio*" description="Give us a few sentences about yourself." {...formal.getFieldProps("bio")} textArea />
         <Centered>
           {submitButtonProps.disabled && (
             <p>
