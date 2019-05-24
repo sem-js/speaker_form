@@ -83,7 +83,7 @@ function Field({ id, label, description, error, ...props }) {
       {props.textArea ? (
         <Input id={id} name={id} rows={4} {...props} as="textarea" />
       ) : (
-        <Input id={id} type="text" {...props} placeholder={label} />
+        <Input id={id} type="text" placeholder={label} {...props}  />
       )}
 
       {error && <Error>{error}</Error>}
@@ -140,17 +140,30 @@ export default function Form() {
             {...formal.getFieldProps("bot-field")}
           />
         </div>
-        <Field label="Name*" {...formal.getFieldProps("name")} />
-        <Field label="Email*" {...formal.getFieldProps("email")} />
-        <Field label="Title*" description="A short sentence or phrase to grab the imagination" {...formal.getFieldProps("title")} />
+        <Field label="Name*" placeholder='Jane Smith' {...formal.getFieldProps("name")} />
+        <Field label="Email*" placeholder='jane@gmail.com' {...formal.getFieldProps("email")} />
+        <Field 
+          label="Title*" 
+          description="A short sentence or phrase to grab the imagination" 
+          placeholder="JavaScript, The Awesome Parts"
+          {...formal.getFieldProps("title")} />
         <Field
           label="Abstract*"
           description="This will be used as the description on the meetup.com notice"
+          placeholder="We all know the things that drive us crazy about JavaScript, but have you ever thought about why it's awesome?  This talk will get you excited about JS in a way you haven't been before."
           {...formal.getFieldProps("abstract")}
-          textArea
-        />
-        <Field label="Notes" description="Anything you want to tell the organizers, but not have included in the event notice" {...formal.getFieldProps("notes")} textArea />
-        <Field label="Bio*" description="Give us a few sentences about yourself (in the third person)." {...formal.getFieldProps("bio")} textArea />
+          textArea />
+        <Field 
+          label="Notes" 
+          description="Anything you want to tell the organizers, but not have included in the event notice" 
+          placeholder="I am available to speak at the January and March meetups."
+          {...formal.getFieldProps("notes")} textArea />
+        <Field 
+          label="Bio*" 
+          description="Give us a few sentences about yourself (in the third person)." 
+          placeholder="Jane Smith is a front-end developer at MegaCorp.  She specializes in building awesome things, and also loves to snowboard."
+          {...formal.getFieldProps("bio")} 
+          textArea />
         <Centered>
           {submitButtonProps.disabled && (
             <p>
