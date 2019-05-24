@@ -7,6 +7,7 @@ import * as yup from "yup";
 const formInitialValues = {
   name: "",
   email: "",
+  title: "",
   bio: "",
   abstract: "",
   notes: "",
@@ -19,6 +20,7 @@ const schema = yup.object().shape({
     .string()
     .email()
     .required(),
+  title: yup.string().required(),
   bio: yup.string().required(),
   notes: yup.string(),
   abstract: yup.string().required()
@@ -140,6 +142,7 @@ export default function Form() {
         </div>
         <Field label="Name*" {...formal.getFieldProps("name")} />
         <Field label="Email*" {...formal.getFieldProps("email")} />
+        <Field label="Title*" description="A short sentence or phrase to grab the imagination" {...formal.getFieldProps("title")} />
         <Field
           label="Abstract*"
           description="This will be used as the description on the meetup.com notice"
