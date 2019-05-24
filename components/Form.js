@@ -150,7 +150,7 @@ export default function Form() {
           textArea
         />
         <Field label="Notes" description="Anything you want to tell the organizers, but not have included in the event notice" {...formal.getFieldProps("notes")} textArea />
-        <Field label="Bio*" description="Give us a few sentences about yourself." {...formal.getFieldProps("bio")} textArea />
+        <Field label="Bio*" description="Give us a few sentences about yourself (in the third person)." {...formal.getFieldProps("bio")} textArea />
         <Centered>
           {submitButtonProps.disabled && (
             <p>
